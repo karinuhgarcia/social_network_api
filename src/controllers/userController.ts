@@ -46,10 +46,11 @@ export const getUserById = async (req: Request, res: Response) => {
 */
 export const createUser = async (req: Request, res: Response) => {
   const { user } = req.body;
+  console.log("Create user", req.body, user)
   try {
-    const newUser = await User.create({
-      user
-    });
+    const newUser = await User.create(
+      req.body
+    );
     res.status(201).json(newUser);
   } catch (error: any) {
     res.status(400).json({

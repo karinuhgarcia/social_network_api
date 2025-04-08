@@ -5,20 +5,27 @@ import {
   getThoughtById,
   createThought,
   deleteThought,
+  updateThought,
   addReaction,
-  removeReaction,
 } from '../../controllers/thoughtController.js';
 
+// removeReaction,
 // /api/thoughts
-router.route('/').get(getAllThoughts).post(createThought);
+router.route('/').get(getAllThoughts)
+router.route("/user/:userid")
+.post(createThought);
 
 // /api/thoughts/:thoughtId
-router.route('/:thoughtId').get(getThoughtById).delete(deleteThought);
+router.route('/:thoughtId')
+  .get(getThoughtById)
+  .put(updateThought)
+  .delete(deleteThought)
 
-// /api/thoughts/:thoughtId/reactions
+// /api/thoughts/:thoughtId/reactio
+// ns
 router.route('/:thoughtId/reactions').post(addReaction);
 
 // /api/thoughts/:thoughtId/reactions/:reactionId
-router.route('/:thoughtId/reactions/:reactionId').delete(removeReaction);
+//router.route('/:thoughtId/reactions/:reactionId').delete(removeReaction);
 
-export { router as thoughtRouter} ;
+export { router as thoughtRouter };
