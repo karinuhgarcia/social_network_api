@@ -1,0 +1,25 @@
+{
+  "name": "social_network_api",
+  "version": "1.0.0",
+  "description": "backend social network api",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nodejs",
+    "inquirer"
+  ],
+  "author": "Karina Garcia",
+  "license": "MIT",
+  "dependencies": {
+    "dayjs": "^1.11.13",
+    "inquirer": "^12.5.2",
+    "mongoose": "^8.13.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  }
+}
