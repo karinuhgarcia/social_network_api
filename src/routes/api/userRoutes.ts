@@ -1,12 +1,15 @@
 import { Router } from 'express';
-const router = Router();
 import {
   getAllUsers,
   getUserById,
   createUser,
   updateUser,
   deleteUser,
+  addFriend,
+  removeFriend,
 } from '../../controllers/userController.js';
+
+const router = Router();
 
 // /api/users
 router.route('/').get(getAllUsers).post(createUser);
@@ -17,5 +20,6 @@ router
   .get(getUserById)
   .put(updateUser)
   .delete(deleteUser);
-
-export { router as userRouter };
+// /api/users/:userId/friends/:friendId
+router.route('/:userId/friends/:friendId').post(addFriend).delete(removeFriend);
+export default router;

@@ -7,13 +7,13 @@ import {
   deleteThought,
   updateThought,
   addReaction,
+  removeReaction,
 } from '../../controllers/thoughtController.js';
 
-// removeReaction,
 // /api/thoughts
 router.route('/').get(getAllThoughts)
 router.route("/user/:userid")
-.post(createThought);
+  .post(createThought);
 
 // /api/thoughts/:thoughtId
 router.route('/:thoughtId')
@@ -21,11 +21,10 @@ router.route('/:thoughtId')
   .put(updateThought)
   .delete(deleteThought)
 
-// /api/thoughts/:thoughtId/reactio
-// ns
+// /api/thoughts/:thoughtId/reactions
 router.route('/:thoughtId/reactions').post(addReaction);
 
 // /api/thoughts/:thoughtId/reactions/:reactionId
-//router.route('/:thoughtId/reactions/:reactionId').delete(removeReaction);
+router.route('/:thoughtId/reactions/:reactionId').delete(removeReaction);
 
-export { router as thoughtRouter };
+export default router;

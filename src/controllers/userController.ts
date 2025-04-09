@@ -108,3 +108,43 @@ export const deleteUser = async (req: Request, res: Response) => {
     });
   }
 };
+
+export const addFriend = async (req: Request, res: Response) => {
+  try {
+    const user = await User.findOneAndUpdate(
+      { _id: req.params.userId },
+      { $addToSet: { friends: req.params.friendId } },
+      { runValidators: true, new: true }
+    );
+
+    if (!user) {
+      res.status(404).json({ message: 'No user with this id!' });
+    }
+
+    res.json(user)
+  } catch (error: any) {
+    res.status(400).json({
+      message: error.message
+    });
+  }
+}
+
+export const removeFriend = async (req: Request, res: Response) => {
+  try {
+    const user = await User.findOneAndUpdate(
+      { _id: req.params.userId },
+      { $pull: { friends: req.params.friendId } },
+      { runValidators: true, new: true }
+    );
+
+    if (!user) {
+      res.status(404).json({ message: 'No user with this id!' });
+    }
+
+    res.json(user)
+  } catch (error: any) {
+    res.status(400).json({
+      message: error.message
+    });
+  }
+}
