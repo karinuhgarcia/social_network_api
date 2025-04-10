@@ -12,6 +12,7 @@ import {
 
 // /api/thoughts
 router.route('/').get(getAllThoughts)
+
 router.route("/user/:userid")
   .post(createThought);
 

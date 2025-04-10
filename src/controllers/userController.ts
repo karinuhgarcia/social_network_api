@@ -6,6 +6,7 @@ import { User, Thought } from '../models/index.js';
  * @returns an array of Users
 */
 export const getAllUsers = async (_req: Request, res: Response) => {
+  console.log("---GET ALL USERS---")
   try {
     const users = await User.find();
     res.json(users);
@@ -45,8 +46,8 @@ export const getUserById = async (req: Request, res: Response) => {
 * @returns a single User object
 */
 export const createUser = async (req: Request, res: Response) => {
-  const { user } = req.body;
-  console.log("Create user", req.body, user)
+ 
+  console.log("Create user", req.body)
   try {
     const newUser = await User.create(
       req.body

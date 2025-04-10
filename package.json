@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "backend social network api",
   "main": "server.js",
+  "type":"module",
   "scripts": {
     "build": "npx tsc",
     "start": "npm run build && node dist/server.js",
